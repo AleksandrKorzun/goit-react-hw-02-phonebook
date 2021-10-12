@@ -1,11 +1,16 @@
 import ContactsListItem from "./ContactsListItem/ContactsListItem";
+import style from './Contacts.module.css'
 
-const Contacts = ({contacts}) => {
+const Contacts = ({filter, contacts, onDeleteContact}) => {
+    
     return (
         <>
-            <h2>Contacts</h2>
-            <ul>
-                <ContactsListItem contacts={contacts}/>
+            <ul className={style.contactsList}>
+                <ContactsListItem 
+                    contacts={contacts}
+                    filter={filter}
+                    onDeleteContact={onDeleteContact}
+                />
             </ul>
         </>
     );

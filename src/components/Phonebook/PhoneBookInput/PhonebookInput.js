@@ -1,10 +1,14 @@
+import style from './PhonebookInput.module.css'
+import PropTypes from 'prop-types';
+
+
 const PhonebookInput = ({name, number, onSubmitContacts, onChangeInpuntName}) => {
     return (
-        <form onSubmit={onSubmitContacts}>
-            <h2>Phonebook</h2>
-            <label>
+        <form className={style.form} onSubmit={onSubmitContacts}>
+            <label className={style.formLabel}>
                 Name
             <input
+                className={style.formInput}
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -14,9 +18,10 @@ const PhonebookInput = ({name, number, onSubmitContacts, onChangeInpuntName}) =>
                 value={name}
             />
             </label>
-            <label>
+            <label className={style.formLabel}>
                 Number
                 <input
+                className={style.formInput}
                 type="tel"
                 name="number"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -26,9 +31,14 @@ const PhonebookInput = ({name, number, onSubmitContacts, onChangeInpuntName}) =>
                 value={number}
                 />
             </label>
-            <button type="submit">ADD contacts</button>
+            <button type="submit" className={style.btn}>ADD contacts</button>
         </form>
     );
 }
 
 export default PhonebookInput;
+
+PhonebookInput.propTypes = {
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired
+}
